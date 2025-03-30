@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import PagoForm from '../src/Component/PagoForm';
+import Resultado from '../src/Component/Resultado';
+import './style.css'
 
-function App() {
+const App = () => {
+  const [pagos, setPagos] = useState([]);
+
+  const agregarPago = (pago) => {
+    setPagos([...pagos, pago]);
+  };
+
+  const resetPagos = () => {
+    setPagos([]); // Borra todos los pagos y resultados
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>¿Quién Paga?</h1>
+      <PagoForm agregarPago={agregarPago} resetPagos={resetPagos} />
+      {pagos.length > 0 && <Resultado pagos={pagos} />}
     </div>
   );
-}
+};
 
 export default App;

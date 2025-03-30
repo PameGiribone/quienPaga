@@ -1,0 +1,133 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Fondo general */
+body {
+  background-color: #ffffff; /* Fondo principal blanco */
+  color: #59554e; /* Texto en gris oscuro */
+  text-align: center;
+  padding: 40px;
+}
+
+/* Contenedor principal */
+div {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  margin-bottom: 15px;
+}
+
+/* Títulos */
+h1, h3, h4 {
+  font-weight: 600;
+  color: #a1c1be; /* Verde suave */
+}
+
+/* Formulario */
+form {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 25px;
+}
+
+input {
+  padding: 14px;
+  font-size: 16px;
+  border: none;
+  border-radius: 16px;
+  background-color: #f3f4e5; /* Beige claro */
+  color: #59554e; /* Texto gris oscuro */
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  background-color: #ffffff;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Botones */
+button {
+  padding: 14px;
+  font-size: 16px;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+button[type="submit"] {
+  background-color: #a1c1be; /* Verde suave */
+  color: #ffffff;
+}
+
+button[type="submit"]:hover {
+  background-color: #84a5a2; /* Tono más oscuro del verde */
+}
+
+button[type="button"] {
+  background-color: #e2e3d9; /* Beige grisáceo */
+  color: #59554e;
+}
+
+button[type="button"]:hover {
+  background-color: #d3d4c7;
+}
+
+/* Lista de participantes */
+ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+li {
+  padding: 14px;
+  font-size: 16px;
+  background-color: #f3f4e5; /* Beige claro */
+  border-radius: 16px;
+  margin-bottom: 10px;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+li:hover {
+  background-color: #e2e3d9; /* Beige grisáceo */
+}
+
+/* Botón dentro de los ítems de la lista */
+li button {
+  background: none;
+  color: #a1c1be; /* Verde suave */
+  font-weight: bold;
+}
+
+li button:hover {
+  text-decoration: underline;
+}
+
+/* Sección de resultados */
+.resultados {
+  background-color: #e2e3d9; /* Beige grisáceo */
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  padding: 15px;
+  border-radius: 16px;
+}
