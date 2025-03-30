@@ -151,7 +151,7 @@ li button:hover {
   input, button {
     padding: 12px;
     font-size: 14px; /* Reducimos el tamaño de los inputs y botones */
-    max-width: 350px; /* Limita el ancho de los inputs y botones */
+    max-width: 90%; /* Permite que el input y los botones utilicen más espacio */
   }
 
   li {
@@ -180,7 +180,7 @@ li button:hover {
   input, button {
     padding: 10px;
     font-size: 12px; /* Reducimos más el tamaño de los inputs y botones */
-    max-width: 300px; /* Limita el ancho de los inputs y botones */
+    max-width: 95%; /* Permite que los elementos utilicen casi todo el ancho disponible */
   }
 
   li {
