@@ -16,16 +16,12 @@ body {
 
 /* Contenedor principal */
 div {
-  max-width: 500px;
+  max-width: 500px; /* Limita el ancho en pantallas grandes */
   margin: 0 auto;
   padding: 20px;
   background: #ffffff;
   border-radius: 20px;
   box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
-  margin-bottom: 15px;
 }
 
 /* Títulos */
@@ -41,11 +37,14 @@ form {
   flex-direction: column;
   gap: 24px;
   margin-bottom: 25px;
+  align-items: center; /* Centra los elementos en el formulario */
 }
 
 input {
   padding: 14px;
   font-size: 16px;
+  width: 100%; /* Asegura que los inputs se adapten al ancho del contenedor */
+  max-width: 400px; /* Limita el ancho máximo para no estirarse demasiado */
   border: none;
   border-radius: 16px;
   background-color: #f3f4e5; /* Beige claro */
@@ -63,6 +62,8 @@ input:focus {
 button {
   padding: 14px;
   font-size: 16px;
+  width: 100%; /* Asegura que los botones se adapten al ancho del contenedor */
+  max-width: 400px; /* Limita el ancho máximo para no estirarse demasiado */
   border-radius: 16px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -130,4 +131,59 @@ li button:hover {
   gap: 10px;
   padding: 15px;
   border-radius: 16px;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  body {
+    padding: 20px;
+  }
+
+  div {
+    padding: 15px;
+    max-width: 90%; /* Aumenta el porcentaje en pantallas pequeñas */
+  }
+
+  h1, h3, h4 {
+    font-size: 1.5em; /* Ajustamos los tamaños de los títulos */
+  }
+
+  input, button {
+    padding: 12px;
+    font-size: 14px; /* Reducimos el tamaño de los inputs y botones */
+    max-width: 350px; /* Limita el ancho de los inputs y botones */
+  }
+
+  li {
+    font-size: 14px; /* Reducimos el tamaño de los elementos de la lista */
+  }
+
+  ul {
+    margin-top: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+
+  div {
+    padding: 10px;
+    max-width: 95%; /* Maximizamos el ancho del contenedor */
+  }
+
+  h1, h3, h4 {
+    font-size: 1.3em; /* Ajustamos más los tamaños en pantallas muy pequeñas */
+  }
+
+  input, button {
+    padding: 10px;
+    font-size: 12px; /* Reducimos más el tamaño de los inputs y botones */
+    max-width: 300px; /* Limita el ancho de los inputs y botones */
+  }
+
+  li {
+    font-size: 12px; /* Ajustamos el tamaño de los ítems de la lista */
+  }
 }
