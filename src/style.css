@@ -25,9 +25,10 @@ div {
 }
 h1{
   margin-bottom: 15px;
+ 
 }
 /* Títulos */
-h1, h3, h4 {
+h3, h4 {
   font-weight: 600;
   color: #a1c1be; /* Verde suave */
 }
