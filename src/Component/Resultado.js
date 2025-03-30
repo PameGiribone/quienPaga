@@ -1,26 +1,34 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const Resultado = ({ pagos }) => {
-  // Aseguramos que los pagos sean números válidos y calculamos el total pagado
-  const totalPagado = pagos.reduce((acc, pago) => acc + (pago.pago || 0), 0);
-  const numPersonas = pagos.length; // Número total de participantes
-  const pagoPromedio = totalPagado / numPersonas;
+  const [totalPagado, setTotalPagado] = useState(0);
+  const [pagoPromedio, setPagoPromedio] = useState(0);
+  const [asignaciones, setAsignaciones] = useState([]);
 
-  // Crear una lista de pagos, considerando que si no pagaron nada, su pago es 0.
-  const pagosConCero = pagos.map((pago) => ({
-    ...pago,
-    saldo: pago.pago - pagoPromedio, // Calcular el saldo de cada persona (debe o recibe)
-  }));
+  useEffect(() => {
+    // Calcular el total pagado y el pago promedio
+    const total = pagos.reduce((acc, pago) => acc + pago.pago, 0);
+    setTotalPagado(total);
+    const promedio = total / pagos.length;
+    setPagoPromedio(promedio);
 
-  // Filtrar los que deben dinero y los que tienen saldo a favor
-  const deudores = pagosConCero.filter((pago) => pago.saldo < 0); // Los que deben dinero
-  const acreedores = pagosConCero.filter((pago) => pago.saldo > 0); // Los que tienen dinero a favor
-  
-  console.log("Deudores:", deudores);
-  console.log("Acreedores:", acreedores);
+    // Crear una lista de pagos con saldo (debe o recibe)
+    const pagosConCero = pagos.map((pago) => ({
+      ...pago,
+      saldo: pago.pago - promedio,
+    }));
+
+    // Filtrar deudores y acreedores
+    const deudores = pagosConCero.filter((pago) => pago.saldo < 0);
+    const acreedores = pagosConCero.filter((pago) => pago.saldo > 0);
+
+    // Asignar deudas entre deudores y acreedores
+    const asignacionesResult = asignarDeudas(deudores, acreedores);
+    setAsignaciones(asignacionesResult);
+  }, [pagos]); // Solo depende de pagos, no de pagoPromedio, porque se recalcula dentro del efecto
 
   // Función para asignar pagos entre deudores y acreedores
-  const asignarDeudas = () => {
+  const asignarDeudas = (deudores, acreedores) => {
     const resultado = [];
     let i = 0;
     let j = 0;
@@ -51,8 +59,6 @@ const Resultado = ({ pagos }) => {
     return resultado;
   };
 
-  const asignaciones = asignarDeudas();
-
   return (
     <div className="resultados">
       <h4>Resultado</h4>
@@ -76,3 +82,4 @@ const Resultado = ({ pagos }) => {
 };
 
 export default Resultado;
+
